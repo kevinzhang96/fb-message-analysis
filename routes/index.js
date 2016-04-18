@@ -82,12 +82,13 @@ router.get('/test', (req, res) => {
             }
           }
         }
+        conversation.sort((a, b) => b.date - a.date)
         messages[other] = conversation;
       }
 
     })
 
-    res.json(messages)
+    res.json(messages, null, 2)
   })
 })
 
