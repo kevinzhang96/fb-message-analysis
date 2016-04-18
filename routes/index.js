@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/test', (req, res) => {
 
-  var name = req.query.name || "Patrick Pan"
+  var name = req.query.name;
 
   fs.readFile(path.join("data", "sample.htm"), 'utf8', (err, data) => {
     if(err) {
