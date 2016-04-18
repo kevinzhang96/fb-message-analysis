@@ -8,6 +8,13 @@ var xAxis, yAxis;
 var data;
 var reversed = false;
 
+class CountsBarChart {
+  constructor (_parentElement, _data) {
+    this.parentElement = _parentElement
+    this.data = _data; 
+  }
+}
+
 // Load CSV file
 function loadData() {
   // Using example coffee house data for now
