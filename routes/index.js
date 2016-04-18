@@ -3,11 +3,13 @@ var router = express.Router();
 
 var fs = require('fs'),
   path = require('path')
-  cheerio = require('cheerio')
+cheerio = require('cheerio')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', {
+    title: 'Express'
+  });
 });
 
 router.get('/test', (req, res) => {
@@ -15,7 +17,7 @@ router.get('/test', (req, res) => {
   // Parses data/sample.htm
 
   fs.readFile(path.join("data", "sample.htm"), 'utf8', (err, data) => {
-    if(err) {
+    if (err) {
       console.error("error reading")
       return;
     }
@@ -25,22 +27,24 @@ router.get('/test', (req, res) => {
     var messageData = cheerio.load(data)
     var threads = messageData(".thread")
     var threadsArray = [];
-    threads.each((i, thread) => { threadsArray.push(thread); });
+    threads.each((i, thread) => {
+      threadsArray.push(thread);
+    });
 
     // Guess the user's name by finding the first name with 5 appearances in the
     // first 10 conversations.
     var userName = null,
       tempNames = {};
     var firstTenConvos = threadsArray.slice(0, 10)
-    while(!userName) {
+    while (!userName) {
       var convo = firstTenConvos.pop();
       var names = convo.childNodes[0].data.split(",");
-      if(names.length == 2) {
+      if (names.length == 2) {
         names.forEach(name => {
-          if(tempNames[name] == undefined) tempNames[name] = 0;
+          if (tempNames[name] == undefined) tempNames[name] = 0;
           else {
             tempNames[name]++;
-            if(tempNames[name] >= 5) userName = name;
+            if (tempNames[name] >= 5) userName = name;
           }
         })
       }
@@ -52,12 +56,12 @@ router.get('/test', (req, res) => {
 
     threadsArray.forEach(thread => {
       var participants = thread.childNodes[0].data
-      if(participants.split(",").length == 2) {
+      if (participants.split(",").length == 2) {
         // The other person's name
-        var other = participants.replace(name, "").replace(",", "").trim()
+        var other = participants.replace(userName, "").replace(",", "").trim()
         var conversation = []
-        for(var i = 1; i < thread.childNodes.length; i++) {
-          if(i % 2 == 1) {
+        for (var i = 1; i < thread.childNodes.length; i++) {
+          if (i % 2 == 1) {
             // Odd-numbered children are sender and date information
             var sender = thread.childNodes[i].childNodes[0].childNodes[0].childNodes[0].data;
             var dateString = thread.childNodes[i].childNodes[0].childNodes[1].childNodes[0].data;
@@ -78,6 +82,9 @@ router.get('/test', (req, res) => {
             }
           }
         }
+        messages[other] = conversation;
+      }
+
     })
 
     res.json(messages)
