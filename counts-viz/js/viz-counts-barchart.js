@@ -8,15 +8,19 @@ class CountsBarChart {
     
     this.animateTime = 1000;
     this.margin = {top: 40, right: 10, bottom: 60, left: 60};
+    
+    var margin = this.margin;
     this.width = 960 - margin.left - margin.right;
     this.height = 500 - margin.top - margin.bottom;
+    
+    this.reversed = false;
     
     this.loadData();
   }
   
   loadData() {
-    initializeVisualization();
-    updateBars();
+    this.initializeVisualization();
+    this.updateBars();
   }
   
   initializeVisualization() {
@@ -55,16 +59,18 @@ class CountsBarChart {
   }
   
   updateBars() {
+    var viz = this;
+    
     // check values
-    var isStores = (d3.select(this.selectID).property("value") == "stores");
+    var isStores = (d3.select(viz.selectID).property("value") == "stores");
     
     // function to return correct value for a data point
     function valFor(d) { return isStores ? d.stores : d.revenue; };
     
     // get values array and sort data
-    var values = data.map(function(d) { return valFor(d); });
-    var sortedData = data.sort(function(d1, d2) { 
-      return (reversed ? -1 : 1) * (valFor(d2) - valFor(d1));
+    var values = viz.data.map(function(d) { return valFor(d); });
+    var sortedData = viz.data.sort(function(d1, d2) { 
+      return (viz.reversed ? -1 : 1) * (valFor(d2) - valFor(d1));
     });
     
     // min and max of values
@@ -73,16 +79,16 @@ class CountsBarChart {
     
     // reset axes
     var companies = sortedData.map(function(d) { return d.company; });
-    this.x.domain(companies);
-    this.y.domain([0, valueMax]);
+    viz.x.domain(companies);
+    viz.y.domain([0, valueMax]);
     
     // update axis labels
-    this.svg.select(".axis-label").text(isStores ? "Stores" : "Revenue");
-    this.svg.select("g.x-axis").transition().duration(0.5 * this.animateTime).call(this.xAxis);
-    this.svg.select("g.y-axis").transition().duration(0.5 * this.animateTime).call(this.yAxis);
+    viz.svg.select(".axis-label").text(isStores ? "Stores" : "Revenue");
+    viz.svg.select("g.x-axis").transition().duration(0.5 * viz.animateTime).call(viz.xAxis);
+    viz.svg.select("g.y-axis").transition().duration(0.5 * viz.animateTime).call(viz.yAxis);
     
     // update bars
-    var bars = this.svg.selectAll(".bar").data(sortedData);
+    var bars = viz.svg.selectAll(".bar").data(sortedData);
     bars.exit().remove();
     bars.enter()
       .append("rect")
@@ -90,11 +96,11 @@ class CountsBarChart {
         .attr("class", "bar");
     bars
         .transition()
-        .duration(this.animateTime)
-        .attr("width", function(d, i) { return this.x.rangeBand(); })
-        .attr("height", function(d) { return this.height - this.y(valFor(d)); })
-        .attr("x", function(d, i) { return this.x(d.company); })
-        .attr("y", function(d) { return this.y(valFor(d)); });
+        .duration(viz.animateTime)
+        .attr("width", function(d, i) { return viz.x.rangeBand(); })
+        .attr("height", function(d) { return viz.height - viz.y(valFor(d)); })
+        .attr("x", function(d, i) { return viz.x(d.company); })
+        .attr("y", function(d) { return viz.y(valFor(d)); });
   }
 }
 
@@ -104,5 +110,5 @@ function reverse() {
 }
 
 d3.csv("data/coffee-house-chains.csv", function(error, csv) {
-  instance = CountsBarChart("#chart-area", "#ranking-type", csv);
+  instance = new CountsBarChart("#chart-area", "#ranking-type", csv);
 });
