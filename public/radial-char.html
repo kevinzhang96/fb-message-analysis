@@ -76,11 +76,11 @@ cursor: pointer;
     <script src="/js/d3.min.js"></script>
     <script src="/js/radial-chart.js"></script>
     <script>
-      $.get("/test", data => {
+      $.get("/test", function(data) {
         console.log(data)
         var counts = Object.keys(data).map(function(person) { return {
           name: person,
-          count: data[person].map(message => message.body).reduce((a, b) => ""+a+b, 0).length
+          count: data[person].map(function(message) { return message.body}).reduce(function(a, b) {return ""+a+b}, 0).length
         }})
         counts.sort(function(a, b) { return  b.count - a.count})
         var topTen = counts.slice(0,15);
