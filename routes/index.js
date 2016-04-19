@@ -84,7 +84,7 @@ router.get('/test', (req, res) => {
           }
         }
         conversation.sort((a, b) => b.date - a.date)
-        messages[other] = conversation;
+        messages[other] = [...(messages[other] || []), ...conversation];
       }
 
     })
