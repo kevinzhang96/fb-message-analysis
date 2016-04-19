@@ -65,7 +65,7 @@ class CountsBarChart {
     var isStores = (d3.select(viz.selectID).property("value") == "stores");
     
     // function to return correct value for a data point
-    function valFor(d) { return isStores ? d.stores : d.revenue; };
+    function valFor(d) { return isStores ? +d.stores : +d.revenue; };
     
     // get values array and sort data
     var values = viz.data.map(function(d) { return valFor(d); });
@@ -73,9 +73,14 @@ class CountsBarChart {
       return (viz.reversed ? -1 : 1) * (valFor(d2) - valFor(d1));
     });
     
+    console.log(values);
+    
     // min and max of values
     var valueMin = d3.min(values);
     var valueMax = d3.max(values);
+    
+    console.log(valueMin);
+    console.log(valueMax);
     
     // reset axes
     var companies = sortedData.map(function(d) { return d.company; });
@@ -86,7 +91,7 @@ class CountsBarChart {
     viz.svg.select(".axis-label").text(isStores ? "Stores" : "Revenue");
     viz.svg.select("g.x-axis").transition().duration(0.5 * viz.animateTime).call(viz.xAxis);
     viz.svg.select("g.y-axis").transition().duration(0.5 * viz.animateTime).call(viz.yAxis);
-    
+
     // update bars
     var bars = viz.svg.selectAll(".bar").data(sortedData);
     bars.exit().remove();
@@ -98,13 +103,22 @@ class CountsBarChart {
         .transition()
         .duration(viz.animateTime)
         .attr("width", function(d, i) { return viz.x.rangeBand(); })
-        .attr("height", function(d) { return viz.height - viz.y(valFor(d)); })
+        .attr("height", function(d) {
+          console.log(valFor(d));
+          console.log(viz.y(valFor(d)));
+          return viz.height - viz.y(valFor(d));;
+        })
         .attr("x", function(d, i) { return viz.x(d.company); })
         .attr("y", function(d) { return viz.y(valFor(d)); });
   }
 }
 
+function updateBars() {
+  instance.updateBars();
+}
+
 function reverse() {
+  console.log("reverse");
   instance.reversed = !instance.reversed;
   instance.updateBars();
 }
