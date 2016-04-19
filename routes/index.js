@@ -53,8 +53,9 @@ router.get('/test', (req, res) => {
     // Create associative array by friend
 
     var messages = {}
-
+    var maxLength = 0;
     threadsArray.forEach(thread => {
+      maxLength = (maxLength > thread.childNodes.length ? maxLength : thread.childNodes.length)
       var participants = thread.childNodes[0].data
       if (participants !== undefined && participants.split(",").length == 2) {
         // The other person's name
@@ -87,7 +88,7 @@ router.get('/test', (req, res) => {
       }
 
     })
-
+    console.log(`Max num of messages: ${maxLength}`)
     res.json(messages, null, 2)
   })
 })

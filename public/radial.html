@@ -76,6 +76,7 @@ cursor: pointer;
     <script src="/js/radial-chart.js"></script>
     <script>
       $.get("/test", data => {
+        console.log(data)
         var counts = Object.keys(data).map(person => { return {
           name: person,
           count: data[person].length
