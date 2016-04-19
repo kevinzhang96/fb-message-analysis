@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Line Chart</title>
+  </head>
+  <body>
+    <div id="chart"></div>
+    
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/d3.min.js"></script>
+    <script src="/js/radial-chart.js"></script>
+    <script>
+      $.get("/test", data => {
+        console.log(data);
+        var times = Object.keys(data).map(person => {
+          return {
+            name: person,
+            times: data[person].map(message => { return new Date(message.date); })
+          };
+        });
+        console.log(times);
+        var personMonths = Object.keys(times).map(index => {
+          var months = {};
+          times[index].times.map(date => {
+            var i = date.getYear() * 12 + date.getMonth();
+            if (months[i] == undefined) {
+              months[i] = 0;
+            }
+            months[i]++;
+          });
+          return {
+            name: times[index].name,
+            months: months
+          };
+        })
+        console.log(personMonths);
+      });
+    </script>
+  </body>
+</html>
