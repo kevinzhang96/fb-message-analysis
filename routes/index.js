@@ -88,13 +88,13 @@ router.get('/process', (req, res) => {
         messages[other] = [...(messages[other] || []), ...conversation];
       }
     })
-    res.json(messages, null, 2)
+    res.end(JSON.stringify(messages, null, 2))
   })
 })
 
 router.get('/test', (req, res) => {
   fs.readFile("data/test.json", 'utf8', (err, data) => {
-    res.end(data)
+    res.json(JSON.parse(data))
   })
 })
 
