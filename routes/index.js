@@ -56,7 +56,7 @@ router.get('/test', (req, res) => {
 
     threadsArray.forEach(thread => {
       var participants = thread.childNodes[0].data
-      if (participants.split(",").length == 2) {
+      if (participants !== undefined && participants.split(",").length == 2) {
         // The other person's name
         var other = participants.replace(userName, "").replace(",", "").trim()
         var conversation = []
