@@ -81,7 +81,7 @@ cursor: pointer;
         var counts = Object.keys(data).map(function(person) {
           return {
           name: person,
-          count: data[person].length > 1000 ? 100 - Math.abs(0.5 - data[person].filter(function(message) { return  message.sender} === person).length / data[person].length) * 200 : -1
+          count: data[person].length > 1000 ? 100 - Math.abs(0.5 - data[person].filter(function(message) { return  message.sender=== person}).length / data[person].length) * 200 : -1
         }})
         counts.sort( function(a, b) {return  b.count - a.count})
         var topTen = counts.slice(0,15);
