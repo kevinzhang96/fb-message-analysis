@@ -38,16 +38,19 @@ router.get('/test', (req, res) => {
     var firstTenConvos = threadsArray.slice(0, 10)
     while (!userName) {
       var convo = firstTenConvos.pop();
-      var names = convo.childNodes[0].data.split(",");
-      if (names.length == 2) {
-        names.forEach(name => {
-          if (tempNames[name] == undefined) tempNames[name] = 0;
-          else {
-            tempNames[name]++;
-            if (tempNames[name] >= 5) userName = name;
-          }
-        })
+      if(convo !== undefined) {
+        var names = convo.childNodes[0].data.split(",");
+        if (names.length == 2) {
+          names.forEach(name => {
+            if (tempNames[name] == undefined) tempNames[name] = 0;
+            else {
+              tempNames[name]++;
+              if (tempNames[name] >= 5) userName = name;
+            }
+          })
+        }
       }
+
     }
 
     // Create associative array by friend
