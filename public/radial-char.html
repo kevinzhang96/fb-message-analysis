@@ -78,14 +78,14 @@ cursor: pointer;
     <script>
       $.get("/test", data => {
         console.log(data)
-        var counts = Object.keys(data).map(person => { return {
+        var counts = Object.keys(data).map(function(person) { return {
           name: person,
           count: data[person].map(message => message.body).reduce((a, b) => ""+a+b, 0).length
         }})
-        counts.sort((a, b) => b.count - a.count)
+        counts.sort(function(a, b) { return  b.count - a.count})
         var topTen = counts.slice(0,15);
         var topTenObj = {}
-        topTen.forEach(entry => {
+        topTen.forEach(function(entry) {
           topTenObj[entry.name] = entry.count
         })
         var chart = radialBarChart()
@@ -93,15 +93,15 @@ cursor: pointer;
           .reverseLayerOrder(true)
           .capitalizeLabels(true)
           .barColors(['#B66199', '#9392CB', '#76D9FA', '#BCE3AD', '#FFD28C', '#F2918B'])
-          .domain([0, d3.max(topTen.map(x => x.count))])
+          .domain([0, d3.max(topTen.map(function(x) {return x.count}))])
 
         d3.select('#chart')
           .datum([{data: topTenObj}])
           .call(chart);
 
-        var dates = Object.keys(data).map(person => { return {
+        var dates = Object.keys(data).map(function(person) { return {
           name: person,
-          count: data[person].map(thread => thread.date)
+          count: data[person].map(function(thread) {return thread.date})
         }})
 
         console.log(dates)
