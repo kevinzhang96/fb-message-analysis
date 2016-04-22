@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/test', (req, res) => {
+router.get('/process', (req, res) => {
 
   // Parses data/sample.htm
 
@@ -88,7 +88,13 @@ router.get('/test', (req, res) => {
         messages[other] = [...(messages[other] || []), ...conversation];
       }
     })
-    res.json(messages, null, 2)
+    res.end(JSON.stringify(messages, null, 2))
+  })
+})
+
+router.get('/test', (req, res) => {
+  fs.readFile("data/test.json", 'utf8', (err, data) => {
+    res.json(JSON.parse(data))
   })
 })
 

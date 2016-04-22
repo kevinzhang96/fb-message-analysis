@@ -80,7 +80,7 @@ cursor: pointer;
         console.log(data)
         var counts = Object.keys(data).map(function(person) { return {
           name: person,
-          count: data[person].length
+          count: data[person].length > 500 ? data[person].map(function(message) {return  message.body}).reduce(function(a, b) { return ""+a+b}, 0).length / data[person].length : 0
         }})
         counts.sort(function(a, b) { return  b.count - a.count})
         var topTen = counts.slice(0,15);
@@ -93,7 +93,7 @@ cursor: pointer;
           .reverseLayerOrder(true)
           .capitalizeLabels(true)
           .barColors(['#B66199', '#9392CB', '#76D9FA', '#BCE3AD', '#FFD28C', '#F2918B'])
-          .domain([0, d3.max(topTen.map(function(x) { return  x.count}))])
+          .domain([0, d3.max(topTen.map(function(x) {return x.count}))])
 
         d3.select('#chart')
           .datum([{data: topTenObj}])
@@ -101,7 +101,7 @@ cursor: pointer;
 
         var dates = Object.keys(data).map(function(person) { return {
           name: person,
-          count: data[person].map(function(thread) { return thread.date})
+          count: data[person].map(function(thread) {return thread.date})
         }})
 
         console.log(dates)
@@ -110,5 +110,4 @@ cursor: pointer;
 
       })
     </script>
-		</body>
-</html>
+		</body></html>

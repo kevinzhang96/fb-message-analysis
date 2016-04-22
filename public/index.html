@@ -1,58 +1,46 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
-<head><title>REAL FRIENDS v.0.0.1</title>
-<!-- FONTS --> 
-<link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<!-- CSS --> 
-<link href="css/main.css" rel="stylesheet"> 
-<link href="css/bootstrap.min.css" rel="stylesheet"> 
-<!-- JS -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/radial-chart.js"></script>
-<script src="js/radial-vis.js"></script>
-<script src="js/main.js"></script>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <title>cs171</title>
+    <style media="screen">
+      body {
+        background-color: #ddd;
+        padding: 0;
+        margin: 0;
+      }
+      .container {
+        background-color: #eee;
+        color: #222;
+        line-height: 1.4em;
+        width: 60%;
+        margin: auto;
+        left: 0;
+        right: 0;
+        padding: 30px 20px;
+        height: 100%;
+        position: absolute;
 
-<body> 
+      }
+      a:before {
+        content: "\a";
+        white-space: pre;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      we don't have a main page yet since we haven't combined things yet so here's some links<br>
+      all of these take a few seconds to load so be patient :) <br>
+      <a href="radial.html">Radial Graph by Message Count</a>
+      <a href="radial-1yr.html">Radial Graph by Message Count within 1 Year</a>
+      <a href="radial-char.html">Radial Graph by Character Count</a>
+      <a href="radial-avglen.html">Radial Graph by Average Length</a>
+      <a href="radial-ratio.html">Radial Graph by Message Ratio (closeness to 50-50)</a>
+      <a href="dates-line.html">Messages over time</a> <br> <br>
 
-    <div id="menu">
-        <ul id="menu-items">
-            <li class="menu-item">HOME</li>
-            <li class="menu-item">MESSAGE-COUNT</li>
-            <li class="menu-item">SENTIMENT</li>
-            <li class="menu-item">RATIO</li>
-        </ul>
-    </div>
+      by patrick, humphrey, and kevin
 
-    <div class="jumbo" id="HOME"> 
-        <div id="header"><span>REAL FRIENDS v.0.1.3</span></div>
-        <div id="nametag">
-            [SAMPLE NAME]
-        </div>
-    </div>
-    <div class="jumbo" id="MESSAGE-COUNT">
-        <div class = 'col-md-6 time-box'>
-            <img src="img/triangle.png" class="carat">
-        </div> 
-        
-        <div class= 'col-md-6 vis-box'>
-            <div id="count-vis"></div> 
-        </div>
-        <span class="section-tag">MESSAGE COUNT</span>
-        
-    </div>
-    
-    
-    <div class="jumbo alt" id = "SENTIMENT">
-        <div id="sent-vis"></div> 
-    </div>
-    
-    
-    <div class="jumbo" id="RATIO">
-        <div id="gen-vis" align="center"></div> 
-    </div>
+</div>
 </body>
-
 </html>

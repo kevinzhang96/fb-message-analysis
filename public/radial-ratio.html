@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <script src='/js/es6-shim.min.js'></script>
+		<script src='/js/es6-shim.min.js'></script>
     <meta charset="utf-8">
     <title>Radial Chart</title>
     <style>
@@ -78,11 +78,12 @@ cursor: pointer;
     <script>
       $.get("/test", function(data) {
         console.log(data)
-        var counts = Object.keys(data).map(function(person) { return {
+        var counts = Object.keys(data).map(function(person) {
+          return {
           name: person,
-          count: data[person].length
+          count: data[person].length > 1000 ? 100 - Math.abs(0.5 - data[person].filter(function(message) { return  message.sender=== person}).length / data[person].length) * 200 : -1
         }})
-        counts.sort(function(a, b) { return  b.count - a.count})
+        counts.sort( function(a, b) {return  b.count - a.count})
         var topTen = counts.slice(0,15);
         var topTenObj = {}
         topTen.forEach(function(entry) {
@@ -93,7 +94,7 @@ cursor: pointer;
           .reverseLayerOrder(true)
           .capitalizeLabels(true)
           .barColors(['#B66199', '#9392CB', '#76D9FA', '#BCE3AD', '#FFD28C', '#F2918B'])
-          .domain([0, d3.max(topTen.map(function(x) { return  x.count}))])
+          .domain([0, d3.max(topTen.map(function(x) {return x.count}))])
 
         d3.select('#chart')
           .datum([{data: topTenObj}])
@@ -101,7 +102,7 @@ cursor: pointer;
 
         var dates = Object.keys(data).map(function(person) { return {
           name: person,
-          count: data[person].map(function(thread) { return thread.date})
+          count: data[person].map(function(thread) { thread.date})
         }})
 
         console.log(dates)
