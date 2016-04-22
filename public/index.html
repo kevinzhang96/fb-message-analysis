@@ -16,29 +16,41 @@
 </head>
 
 <body> 
+
     <div id="menu">
         <ul id="menu-items">
-            <li class="menu-item">TIME</li>
             <li class="menu-item">HOME</li>
+            <li class="menu-item">MESSAGE-COUNT</li>
             <li class="menu-item">SENTIMENT</li>
-            <li class="menu-item">OTHER</li>
+            <li class="menu-item">RATIO</li>
         </ul>
     </div>
-    
+
     <div class="jumbo" id="HOME"> 
-        <div id="header"><span>REAL FRIENDS v.0.0.1</span></div>
+        <div id="header"><span>REAL FRIENDS v.0.1.3</span></div>
         <div id="nametag">
             [SAMPLE NAME]
         </div>
+    </div>
+    <div class="jumbo" id="MESSAGE-COUNT">
+        <div class = 'col-md-6 time-box'>
+            <img src="img/triangle.png" class="carat">
+        </div> 
+        
+        <div class= 'col-md-6 vis-box'>
+            <div id="count-vis"></div> 
+        </div>
+        <span class="section-tag">MESSAGE COUNT</span>
+        
+    </div>
     
-    </div>
-    <div class="jumbo" id="TIME">
-        <div id="time-vis"></div> 
-    </div>
+    
     <div class="jumbo alt" id = "SENTIMENT">
         <div id="sent-vis"></div> 
     </div>
-    <div class="jumbo" id="OTHER">
+    
+    
+    <div class="jumbo" id="RATIO">
         <div id="gen-vis" align="center"></div> 
     </div>
 </body>

@@ -75,13 +75,14 @@
 /* CLASSES */
 
 .jumbo {
+    position: relative;
     width: 100%;
     height: 750px; /* Change later */ 
     background-color: white;
     z-index: -1;
 }
 .alt {
-    background-color: #C2F0FF;
+    background-color: #FCFDFF;
 }
 
 
@@ -92,6 +93,47 @@ font-size: 14px;
 #chart path {
 fill: none;
 }
+
+.time-box {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 15px solid #3B5998;
+    background-color: white;
+    height: 100%;
+    width: 50%;
+    
+    box-shadow: 10px 0px 20px #AAAAAA;
+}
+.carat {
+    position: absolute;
+    
+    
+    width: 90px;
+    right: -90px;
+    top: 200px;
+}
+.vis-box {
+    height: 100%;
+    width: 50%;
+    display: inline-block;
+}
+
+.section-tag {
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    
+    text-align: right; 
+    color: #3B5998;
+    opacity: 0.5;
+    position: absolute;
+    
+    font-size: 5em;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+}
+
 
 /* layers */
 #chart .layer-0 path {
