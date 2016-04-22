@@ -6,4 +6,20 @@ $(document).ready(function(){
         scrollTop: $(name).offset().top
     }, 700);
   });
+  $(document).mousemove(function(e) {
+    window.x = e.pageX;
+    window.y = e.pageY;
+});
+
+$(document).mousemove(function(){
+if(window.x > 100)
+{
+  $("#menu").hide({width:'toggle'},350);
+  console.log('do not menu');
+}
+else{ $('#menu').show({width:'toggle'},350); console.log('MENU'); }
+
 })
+
+})
+
