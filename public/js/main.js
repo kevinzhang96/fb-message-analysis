@@ -12,12 +12,12 @@ $(document).ready(function(){
 });
 
 $(document).mousemove(function(){
-if(window.x > 100)
+if(window.x < 100)
 {
-  $("#menu").hide({width:'toggle'},350);
-  console.log('do not menu');
+  $("#menu").show({width:'toggle'},350);
+  console.log('menu');
 }
-else{ $('#menu').show({width:'toggle'},350); console.log('MENU'); }
+else{ $('#menu').hide({width:'toggle'},350); console.log('do not menu'); }
 
 })
 
