@@ -17,7 +17,7 @@ function radialBarChart() {
   var barScale = null;
   var keys = null;
   var labelRadius = 0;
-
+  var timeVis = new TimeVisualization('time-vis',null);
 
   function init(d) {
     barScale = d3.scale.linear().domain(domain).range([0, barHeight]);
@@ -180,6 +180,47 @@ function radialBarChart() {
       segments
         .on('click', function(d){
           console.log(d);
+            var array = []
+            var meh = d3.extent(d.times);
+            diff = meh[1].getTime() - meh[0].getTime();
+            bucket10 = Math.floor(diff/10);
+            for(var i = 0; i<10; i++)
+            {
+              array.push((meh[0].getTime()+bucket10*i));
+            }
+            timeArray = array;
+
+            var array = []
+            for(var j = 0; j<10; j++)
+            {
+              var t = (d.times).map(function(x){ return x.getTime() })
+              var tt = t.filter(function(x){
+                if(j<9){ return (x>timeArray[j])&&(x<timeArray[j+1])}
+                else { return x>timeArray[j] }
+              })
+              array.push(tt.length);
+            }
+            console.log(array);
+            counts = array;
+
+          var timeData = []
+          var dates = timeArray.map(function(x){
+            return new Date(x)
+          });
+
+          for(var k=0; k<timeArray.length; k++)
+          {
+              timeData.push(
+                {
+                  date: dates[k],
+                  count: counts[k]
+                }
+              )
+          }
+          console.log(timeData);
+          timeVis.setData(timeData);
+          timeVis.updateVisualization();
+
         })
       if(!update)
         renderOverlays(this);

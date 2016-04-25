@@ -73,6 +73,7 @@ cursor: pointer;
     <div id="time-vis"></div>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/d3.min.js"></script>
+    <script src="/js/time-visualization-count.js"></script>
     <script src="/js/radial-chart.js"></script>
     <script>
       date = null;
@@ -95,6 +96,7 @@ cursor: pointer;
 
         })
         console.log(topTenObj)
+        //var time_chart = new TimeVisualization('time-vis',null);
         var chart = radialBarChart()
           .barHeight(250)
           .reverseLayerOrder(true)
