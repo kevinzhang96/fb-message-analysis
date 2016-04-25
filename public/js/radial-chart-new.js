@@ -1,4 +1,4 @@
-function radialBarChart() {
+function radialBarChart002() {
 
   // Configurable variables
   var margin = {top: 20, right: 20, bottom: 20, left: 20};
@@ -142,25 +142,8 @@ function radialBarChart() {
       var segments = layers
         .selectAll('path')
         .data(function(d) {
-          /*
-          counts = [];
-          for(key in d.data){
-            counts.push(d.data[key].count)
-          }
-          console.log(counts)
-          return counts;
-          */
-          DATA = []
-          for(key in d.data){
-            DATA.push(
-              {
-                name: key,
-                count: d.data[key].count,
-                times: d.data[key].times
-              }
-            )
-          }
-          return DATA;
+          var m = d3.map(d.data);
+          return m.values();
         });
 
       segments
@@ -171,16 +154,18 @@ function radialBarChart() {
           return barColors[i % barColors.length];
         });
 
+      segments
+        .on('click', function(d){
+
+        })
+
       segments.exit().remove();
 
       segments
         .transition()
         .duration(transitionDuration)
         .attr('d', d3.svg.arc().innerRadius(0).outerRadius(or).startAngle(sa).endAngle(ea))
-      segments
-        .on('click', function(d){
-          console.log(d);
-        })
+
       if(!update)
         renderOverlays(this);
     });
