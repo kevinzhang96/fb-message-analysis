@@ -76,7 +76,7 @@ cursor: pointer;
     <script src="/js/d3.min.js"></script>
     <script src="/js/radial-chart.js"></script>
     <script>
-      $.get("/test",function(data){
+      $.get("/process",function(data){
         console.log(data)
         var counts = Object.keys(data).map(function(person) { return {
           name: person,

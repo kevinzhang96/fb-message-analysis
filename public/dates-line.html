@@ -140,7 +140,7 @@ svg.append("defs")
 
 //end slider part-----------------------------------------------------------------------------------
 
-$.get("/test", function(data) {
+$.get("/process", function(data) {
   console.log(data);
   // get list of top ten names
   var counts = Object.keys(data).map(function(person) { return {

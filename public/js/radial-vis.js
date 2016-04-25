@@ -1,4 +1,4 @@
-$.get("/test", data => {
+$.get("/process", data => {
 console.log(data)
 var counts = Object.keys(data).map(person => { return {
 	name: person,
