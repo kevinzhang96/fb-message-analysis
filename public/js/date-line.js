@@ -217,7 +217,7 @@ $.get("/data", function(data) {
       .attr("x", -10)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Issues Rating");
+      .text("Number of Messages/Month");
 
   var issue = svg.selectAll(".issue")
       .data(categories) // Select nested data and append to new svg group elements
