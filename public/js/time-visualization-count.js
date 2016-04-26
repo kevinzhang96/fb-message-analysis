@@ -2,7 +2,6 @@ TimeVisualization = function(_parentElement, _data) {
 
 	this.parentElement = _parentElement;
 	this.data = _data;
-
 	this.initVis();
 }
 
@@ -85,11 +84,7 @@ TimeVisualization.prototype.updateVisualization = function() {
 		.attr('cx', function(d){ return vis.x(d.date); })
 		.attr('fill', 'green')
 		.attr('stroke', 'green');
-<<<<<<< HEAD
-		
-=======
 
->>>>>>> 4d6eac55f927962d3a922e5719d0a2c7ada39a4b
 	circles.exit().remove();
 
 	d3.select('.x-axis')
