@@ -1,4 +1,4 @@
-$.get("/data", function(data) {
+function generateCountsRadialGraph(data) {
 	var counts = Object.keys(data).map(function(person) { return {
 		name: person,
 		count: data[person].length,
@@ -37,4 +37,4 @@ $.get("/data", function(data) {
 	d3.select('#count-radial-vis')
 		.datum([{data: topTenObj}])
 		.call(chart);
-});
+};

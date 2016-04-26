@@ -1,4 +1,4 @@
-$.get("/data", function(data) {
+function generateRatiosRadialGraph(data) {
   var counts = Object.keys(data).map(function(person) {
     return {
       name: person,
@@ -60,4 +60,4 @@ $.get("/data", function(data) {
   d3.select('#ratios-vis')
     .datum([{data: topTenObj}])
     .call(chart);
-});
+};

@@ -70,7 +70,7 @@ svg.append("defs")
 
 //end slider part-----------------------------------------------------------------------------------
 
-$.get("/data", function(data) {
+function generateDateLineGraph(data) {
   // get list of top ten names
   var counts = Object.keys(data).map(function(person) { return {
     name: person,
@@ -402,7 +402,7 @@ $.get("/data", function(data) {
       });
   };
   
-}); // End Data callback function
+}; // End Data callback function
 
 function findMaxY(data){  // Define function "findMaxY"
   var maxYValues = data.map(function(d) {

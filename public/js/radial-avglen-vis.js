@@ -1,4 +1,4 @@
-$.get("/data", function(data) {
+function generateLengthRadialGraph(data) {
   var counts = Object.keys(data).map(function(person) { return {
     name: person,
     count: data[person].length > 500 ? data[person].map(function(message) {return  message.body}).reduce(function(a, b) { return ""+a+b}, 0).length / data[person].length : 0,
@@ -49,4 +49,4 @@ $.get("/data", function(data) {
   d3.select('#lengths-vis')
     .datum([{data: topTenObj}])
     .call(chart);
-});
+};
