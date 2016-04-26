@@ -7,6 +7,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/date-line.css">
     <link rel="stylesheet" href="css/radial-chart.css">
     <link rel="stylesheet" href="css/main.css"> 
     <!-- JS -->
@@ -38,8 +39,9 @@
     
     <!--*********************** COUNT VISUALIZATION ************************-->
     <div class="jumbo" id="MESSAGE-COUNT">
-        <div class="chart" id="count-radial-vis"></div>
-        <span class="section-tag">MESSAGE COUNT</span>
+        <div class="section-tag">MESSAGE COUNT</div>
+        <div class="chart" id="count-time-vis"></div>
+        <div class="chart" id="count-radial-vis"></div>        
     </div>
     
     <!--**************************** SENTIMENT *****************************-->
@@ -54,6 +56,7 @@
     
     <!-- load visualizations after page has mostly loaded -->
     <script src="js/time-visualization-count.js"></script>
+    <script src="js/date-line.js"></script>
     <script src="js/radial-chart.js"></script>
     <script src="js/radial-vis.js"></script>
 </body>

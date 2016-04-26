@@ -2,11 +2,8 @@
 * {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    
-    
 }
-
-#header{
+#header {
     position: relative; 
     height: 50px;
     width: 100%;
@@ -16,7 +13,6 @@
     font-size: 30px;
     font-weight: 700;
     padding: 10px;
-
 }
 #header > * {
     line-height: 50px;
@@ -33,7 +29,7 @@
     left: 0px;
     z-index: 1000;
 }
-#menu-items > li{
+#menu-items > li {
   font-family: 'Oswald', sans-serif;;
   font-weight: 700;
   font-size: 3em;
@@ -44,7 +40,7 @@
   
   cursor: pointer;
 }
-#nametag{
+#nametag {
     position: absolute;
     top: 175px;
     right: 0px;
@@ -61,21 +57,12 @@
     vertical-align: middle;
     line-height: 50px;
 }
-#sentiment {
-    
-    
-}
-
-#time {
-    
-}
 
 /* CLASSES */
-
 .jumbo {
     position: relative;
     width: 100%;
-    height: 750px; /* Change later */ 
+    height: 600px;  
     background-color: white;
     z-index: -1;
 }
@@ -83,32 +70,26 @@
     background-color: #FCFDFF;
 }
 
-/*.time-box {
-    box-sizing: border-box;
-    border: 15px solid #3B5998;
-    background-color: white;
-    box-shadow: 10px 0px 20px #AAAAAA;
-}
-.carat {
-    position: absolute;
-    width: 90px;
-    right: -90px;
-    top: 200px;
-}
-.vis-box {
-}*/
-
 .section-tag {
-    position: absolute;
-    bottom: 40px;
-    right: 20px;
-    
-    text-align: right; 
+    width: 100%;
+    float: left;
+    text-align: left;
     color: #3B5998;
     opacity: 0.5;
-    position: absolute;
     
     font-size: 5em;
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
+}
+
+#count-time-vis {
+    float: left;
+    height: 540px;
+    z-index: 1;
+}
+
+#count-radial-vis {
+    width: 540px;
+    height: 540px;
+    float: right;
 }

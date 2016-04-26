@@ -13,7 +13,7 @@ $(document).ready(function(){
   });
 
   $(window).scroll(function(){
-    if (document.body.scrollTop < 300) {
+    if (document.body.scrollTop < 100) {
       $("#menu").show({ width:'toggle' }, 500);
     }
     else { 
