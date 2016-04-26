@@ -15,15 +15,13 @@ router.get('/', function(req, res, next) {
 router.get('/process', (req, res) => {
 
   // Parses data/sample.htm
-
   fs.readFile(path.join("data", "sample.htm"), 'utf8', (err, data) => {
     if (err) {
       console.error("error reading")
       return;
     }
-
+    
     // Read file into an array of threads
-
     var messageData = cheerio.load(data)
     var threads = messageData(".thread")
     var threadsArray = [];
@@ -92,26 +90,10 @@ router.get('/process', (req, res) => {
   })
 })
 
-router.get('/test', (req, res) => {
-  fs.readFile("data/test.json", 'utf8', (err, data) => {
+router.get('/data', (req, res) => {
+  fs.readFile("data/messages.json", 'utf8', (err, data) => {
     res.json(JSON.parse(data))
   })
 })
 
 module.exports = router;
-
-
-// > threadsArray[0].childNodes[0].data
-// > Participants
-// > threadsArray[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].data
-// > Sender
-// > threadsArray[0].childNodes[1].childNodes[0].childNodes[1].childNodes[0].data
-// > Message Date
-// > threadsArray[0].childNodes[2].childNodes[0].data
-// > Message Body
-// > threadsArray[0].childNodes[3].childNodes[0].childNodes[0].childNodes[0].data
-// > Sender
-// > threadsArray[0].childNodes[3].childNodes[0].childNodes[1].childNodes[0].data
-// > Message Date
-// > threadsArray[0].childNodes[4].childNodes[0].data
-// > Message Body

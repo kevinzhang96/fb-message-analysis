@@ -1,23 +1,23 @@
 <!DOCTYPE html> 
 <html>
-<head><title>REAL FRIENDS v.0.0.1</title>
-<!-- FONTS --> 
-<link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<!-- CSS --> 
-<link href="css/main.css" rel="stylesheet"> 
-<link href="css/bootstrap.min.css" rel="stylesheet"> 
-<script src='/js/es6-shim.min.js'></script>
-<!-- JS -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/radial-chart.js"></script>
-<script src="js/radial-vis.js"></script>
-<script src="js/main.js"></script>
+<head>
+    <title>REAL FRIENDS v.0.0.1</title>
+    <!-- FONTS --> 
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS --> 
+    <link href="css/main.css" rel="stylesheet"> 
+    <link href="css/bootstrap.min.css" rel="stylesheet"> 
+    <!-- JS -->
+    <script src='js/es6-shim.min.js'></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/complete.js"></script>
 </head>
 
 <body> 
-
+    <!--******************************* MENU *******************************-->
     <div id="menu">
         <ul id="menu-items">
             <li class="menu-item">HOME</li>
@@ -27,33 +27,38 @@
         </ul>
     </div>
 
+    <!--******************************* HOME *******************************-->
     <div class="jumbo" id="HOME"> 
         <div id="header"><span>REAL FRIENDS v.0.1.3</span></div>
         <div id="nametag">
             [SAMPLE NAME]
         </div>
     </div>
+    
+    <!--*********************** COUNT VISUALIZATION ************************-->
     <div class="jumbo" id="MESSAGE-COUNT">
         <div class = 'col-md-6 time-box'>
             <img src="img/triangle.png" class="carat">
-        </div> 
-        
+        </div>
         <div class= 'col-md-6 vis-box'>
             <div id="count-vis"></div> 
         </div>
         <span class="section-tag">MESSAGE COUNT</span>
-        
     </div>
     
-    
+    <!--**************************** SENTIMENT *****************************-->
     <div class="jumbo alt" id = "SENTIMENT">
         <div id="sent-vis"></div> 
     </div>
     
-    
+    <!--****************************** RATIO *******************************-->
     <div class="jumbo" id="RATIO">
-        <div id="gen-vis" align="center"></div> 
-
+        <div id="gen-vis" align="center"></div>
     </div>
-		</body>
+    
+    <!-- load visualizations after page has mostly loaded -->
+    <script src="js/time-visualization-count.js"></script>
+    <script src="js/radial-chart.js"></script>
+    <script src="js/radial-vis.js"></script>
+</body>
 </html>
