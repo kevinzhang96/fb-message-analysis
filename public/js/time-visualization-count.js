@@ -77,9 +77,6 @@ TimeVisualization.prototype.updateVisualization = function() {
 	circles.enter()
 		.append('circle');
 
-	//circles
-	//	.on('click', function(d){ showEdition(d); });
-
 	circles
 		.transition()
 		.duration(800)
@@ -88,22 +85,7 @@ TimeVisualization.prototype.updateVisualization = function() {
 		.attr('cx', function(d){ return vis.x(d.date); })
 		.attr('fill', 'green')
 		.attr('stroke', 'green');
-	/*
-	circles
-		.on('mouseover', function(d){
-			tip
-				.attr('display', 'inline')
-				.attr('x', function(){ return x(d.date); })
-				.attr('y', function(){ return y(d[selection])-20; })
-				.text(function(){
-					return d.EDITION+'///'+d[selection];
-				})
-				.attr('text-anchor','middle')
-		})
-		.on('mouseout', function(){
-			tip.attr('display','none');
-		})
-		*/
+	
 	circles.exit().remove();
 
 	d3.select('.x-axis')
