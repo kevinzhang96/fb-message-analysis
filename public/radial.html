@@ -4,10 +4,11 @@
   <script src='/js/es6-shim.min.js'></script>
     <meta charset="utf-8">
     <title>Radial Chart</title>
+    <link rel="stylesheet" href="css/radial-chart.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
     <div id="chart"></div>
-    <div id="time-vis"></div>
+    <div id="counts-time-line"></div>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/d3.min.js"></script>
     <script src="/js/time-visualization-count.js"></script>
@@ -29,10 +30,9 @@
             count: entry.count,
             times: entry.times
           }
-
-        })
+        });
         console.log(topTenObj)
-        
+
         var chart = radialBarChart()
           .barHeight(250)
           .reverseLayerOrder(true)

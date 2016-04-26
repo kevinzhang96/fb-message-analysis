@@ -85,11 +85,15 @@ TimeVisualization.prototype.updateVisualization = function() {
 		.attr('cx', function(d){ return vis.x(d.date); })
 		.attr('fill', 'green')
 		.attr('stroke', 'green');
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> 4d6eac55f927962d3a922e5719d0a2c7ada39a4b
 	circles.exit().remove();
 
 	d3.select('.x-axis')
-		.attr('transform', 'translate(0,'+(height+15)+')');
+		.attr('transform', 'translate(0,'+(vis.height+15)+')');
 
 	d3.select('.y-axis')
 		.attr('transform', 'translate(-15,0)');

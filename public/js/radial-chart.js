@@ -17,7 +17,7 @@ function radialBarChart() {
   var barScale = null;
   var keys = null;
   var labelRadius = 0;
-  var timeVis = new TimeVisualization('time-vis',null);
+  var timeVis = new TimeVisualization('counts-time-line',null);
 
   function init(d) {
     barScale = d3.scale.linear().domain(domain).range([0, barHeight]);
