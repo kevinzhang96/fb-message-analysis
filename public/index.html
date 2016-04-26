@@ -1,45 +1,74 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>cs171</title>
-    <style media="screen">
-      body {
-        background-color: #ddd;
-        padding: 0;
-        margin: 0;
-      }
-      .container {
-        background-color: #eee;
-        color: #222;
-        line-height: 1.4em;
-        width: 60%;
-        margin: auto;
-        left: 0;
-        right: 0;
-        padding: 30px 20px;
-        height: 100%;
-        position: absolute;
+<head>
+    <title>REAL FRIENDS v.0.0.1</title>
+    <!-- FONTS --> 
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/date-line.css">
+    <link rel="stylesheet" href="css/radial-chart.css">
+    <link rel="stylesheet" href="css/main.css"> 
+    <!-- JS -->
+    <script src='js/es6-shim.min.js'></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/complete.js"></script>
+</head>
 
-      }
-      a:before {
-        content: "\a";
-        white-space: pre;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      we don't have a main page yet since we haven't combined things yet so here's some links<br>
-      all of these take a few seconds to load so be patient :) <br>
-      <a href="radial.html">Radial Graph by Message Count</a>
-      <a href="radial-1yr.html">Radial Graph by Message Count within 1 Year</a>
-      <a href="radial-char.html">Radial Graph by Character Count</a>
-      <a href="radial-avglen.html">Radial Graph by Average Length</a>
-      <a href="radial-ratio.html">Radial Graph by Message Ratio (closeness to 50-50)</a>
-      <a href="dates-line.html">Messages over time</a> <br> <br>
-
-      by patrick, humphrey, and kevin
+<body> 
+    <!--******************************* MENU *******************************-->
+    <div id="menu">
+        <ul id="menu-items">
+            <li class="menu-item">HOME</li>
+            <li class="menu-item">MESSAGE-COUNTS</li>
+            <li class="menu-item">MONTHLY-MESSAGES</li>
+            <li class="menu-item">RATIO</li>
+            <li class="menu-item">MESSAGE-LENGTHS</li>
+        </ul>
     </div>
-  </body>
+
+    <!--******************************* HOME *******************************-->
+    <div class="jumbo" id="HOME"> 
+        <div id="header"><span>REAL FRIENDS v.0.2.0</span></div>
+        <div id="nametag">
+            Kevin Zhang
+        </div>
+    </div>
+    
+    <!--*********************** COUNT VISUALIZATION ************************-->
+    <div class="jumbo" id="MESSAGE-COUNTS">
+        <div class="section-tag">MESSAGE COUNT</div>
+        <div class="chart radial" id="count-radial-vis"></div>
+        <div class="chart" id="counts-time-line"></div>
+    </div>
+    
+    <div class="jumbo" id="MONTHLY-MESSAGES">
+        <div class="section-tag">MESSAGES PER MONTH</div>
+        <div class="chart" id="count-time-vis"></div>    
+    </div>
+    
+    <!--****************************** RATIO *******************************-->
+    <div class="jumbo" id="RATIO">
+        <div class="section-tag">RATIOS</div>
+        <div class="chart radial" id="ratios-vis"></div>
+        <div class="chart" id="ratios-time-line"></div>
+    </div>
+    
+    <div class="jumbo" id="MESSAGE-LENGTHS">
+        <div class="section-tag">MESSAGE LENGTHS</div>
+        <div class="chart radial" id="lengths-vis"></div>
+        <div class="chart" id="lengths-time-line"></div>
+    </div>
+    
+    <!-- load visualizations after page has mostly loaded -->
+    <script src="js/date-line.js"></script>
+    <script src="js/time-visualization-count.js"></script>
+    <script src="js/radial-chart.js"></script>
+    <script src="js/radial-counts-vis.js"></script>
+    <script src="js/radial-ratios-vis.js"></script>
+    <script src="js/radial-avglen-vis.js"></script>
+</body>
 </html>
