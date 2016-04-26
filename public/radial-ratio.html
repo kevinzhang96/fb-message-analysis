@@ -28,20 +28,20 @@
         }});
         counts.sort( function(a, b) {return  b.count - a.count})
         var topTen = counts.slice(0,15);
-        var topTenObj = {}
+        var topTenObj = {};
         topTen.forEach(function(entry) {
           topTenObj[entry.name] = {
             count: entry.count,
             times: entry.times
           }
-        })
+        });
         
         var chart = radialBarChart()
           .barHeight(250)
           .reverseLayerOrder(true)
           .capitalizeLabels(true)
           .barColors(['#B66199', '#9392CB', '#76D9FA', '#BCE3AD', '#FFD28C', '#F2918B'])
-          .domain([0, d3.max(topTen.map(function(x) {return x.count}))])
+          .domain([0, d3.max(topTen.map(function(x) {return x.count}))]);
         d3.select('#chart')
           .datum([{data: topTenObj}])
           .call(chart);

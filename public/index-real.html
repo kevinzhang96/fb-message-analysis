@@ -23,9 +23,10 @@
     <div id="menu">
         <ul id="menu-items">
             <li class="menu-item">HOME</li>
-            <li class="menu-item">MESSAGE-COUNT</li>
-            <li class="menu-item">SENTIMENT</li>
+            <li class="menu-item">MESSAGE-COUNTS</li>
+            <li class="menu-item">MONTHLY-MESSAGES</li>
             <li class="menu-item">RATIO</li>
+            <li class="menu-item">MESSAGE-LENGTHS</li>
         </ul>
     </div>
 
@@ -38,29 +39,36 @@
     </div>
     
     <!--*********************** COUNT VISUALIZATION ************************-->
-    <div class="jumbo" id="MESSAGE-COUNT">
+    <div class="jumbo" id="MESSAGE-COUNTS">
         <div class="section-tag">MESSAGE COUNT</div>
-        <div class="chart" id="count-time-vis"></div>
-        <div class="chart" id="count-radial-vis"></div>
-        <div id="counts-time-line"></div>        
+        <div class="chart radial" id="count-radial-vis"></div>
+        <div class="chart" id="counts-time-line"></div>
     </div>
     
-    <!--**************************** SENTIMENT *****************************-->
-    <div class="jumbo alt" id = "SENTIMENT">
-        <div class="section-tag">SENTIMENT</div>
-        <div id="sent-vis"></div> 
+    <div class="jumbo" id="MONTHLY-MESSAGES">
+        <div class="section-tag">MESSAGES PER MONTH</div>
+        <div class="chart" id="count-time-vis"></div>    
     </div>
     
     <!--****************************** RATIO *******************************-->
     <div class="jumbo" id="RATIO">
         <div class="section-tag">RATIOS</div>
-        <div id="gen-vis" align="center"></div>
+        <div class="chart radial" id="ratios-vis"></div>
+        <div class="chart" id="ratios-time-line"></div>
+    </div>
+    
+    <div class="jumbo" id="MESSAGE-LENGTHS">
+        <div class="section-tag">MESSAGE LENGTHS</div>
+        <div class="chart radial" id="lengths-vis"></div>
+        <div class="chart" id="lengths-time-line"></div>
     </div>
     
     <!-- load visualizations after page has mostly loaded -->
     <script src="js/date-line.js"></script>
     <script src="js/time-visualization-count.js"></script>
     <script src="js/radial-chart.js"></script>
-    <script src="js/radial-vis.js"></script>
+    <script src="js/radial-counts-vis.js"></script>
+    <script src="js/radial-ratios-vis.js"></script>
+    <script src="js/radial-avglen-vis.js"></script>
 </body>
 </html>
