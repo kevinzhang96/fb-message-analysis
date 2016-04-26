@@ -85,7 +85,7 @@ TimeVisualization.prototype.updateVisualization = function() {
 		.attr('cx', function(d){ return vis.x(d.date); })
 		.attr('fill', 'green')
 		.attr('stroke', 'green');
-	
+		
 	circles.exit().remove();
 
 	d3.select('.x-axis')
