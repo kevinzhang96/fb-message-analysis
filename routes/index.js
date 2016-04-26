@@ -50,8 +50,8 @@ router.get('/process', (req, res) => {
           })
         }
       }
-
-    }
+      
+  }
 
     // Create associative array by friend
 
@@ -89,7 +89,9 @@ router.get('/process', (req, res) => {
       }
     })
     res.end(JSON.stringify(messages, null, 2))
+    console.log('res.end')
   })
+  console.log('fin')
 })
 
 router.get('/test', (req, res) => {
