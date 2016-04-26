@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="chart"></div>
-    <div id="time-vis"></div>
+    <div id="counts-time-line"></div>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/d3.min.js"></script>
     <script src="/js/time-visualization-count.js"></script>
@@ -30,8 +30,7 @@
             count: entry.count,
             times: entry.times
           }
-
-        })
+        });
         console.log(topTenObj)
 
         var chart = radialBarChart()
