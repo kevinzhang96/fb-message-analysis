@@ -46,14 +46,11 @@ TimeVisualization.prototype.initVis = function(){
 		.attr('z-index', 10000);
 
 	vis.formatDate = d3.time.format("%Y");
-
-
 }
 
 // Render visualization
 TimeVisualization.prototype.updateVisualization = function() {
 	var vis = this;
-	console.log(this.data);
 	vis.x.domain(d3.extent(this.data, function(d){ return d.date}));
 	vis.y.domain(d3.extent(this.data, function(d){ return d.count}));
 	var line = d3.svg.line()

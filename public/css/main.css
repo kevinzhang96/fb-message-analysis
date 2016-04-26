@@ -62,7 +62,7 @@
 .jumbo {
     position: relative;
     width: 100%;
-    min-height: 600px;  
+    height: 660px;  
     background-color: white;
 }
 .alt {
@@ -82,16 +82,18 @@
     font-weight: 700;
 }
 
-#count-time-vis {
-    display: inline-block;
-    vertical-align: top;
+.chart {
+    width: 50%;
     height: 540px;
-    z-index: 1;
+    display: inline-block;
 }
 
-#count-radial-vis {
-    display: inline-block;
+.radial {
     width: 540px;
+<<<<<<< HEAD
     height: 540px;
 }
 
+=======
+}
+>>>>>>> 87dba465a43eae319f8cff7728b16f2f578a2ba6

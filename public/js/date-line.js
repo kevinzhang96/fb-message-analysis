@@ -105,7 +105,6 @@ $.get("/data", function(data) {
   personMonths = personMonths.filter(function(person) {
     return topTen.indexOf(person.name) !== -1;
   });
-  console.log(personMonths);
 
   // get list of months
   var months = new Set();
@@ -119,7 +118,6 @@ $.get("/data", function(data) {
   sortedMonths = sortedMonths.map(function(m) {
     return new Date(1900 + m / 12, m % 12, 1);
   });
-  console.log(sortedMonths);
 
   // create array of dictionaries
   var monthsData = [];

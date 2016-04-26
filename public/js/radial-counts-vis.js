@@ -14,7 +14,21 @@ $.get("/data", function(data) {
 		}
 	});
 
-	var chart = radialBarChart()
+	function countsFunc(d) {
+		var array = []
+		for(var j = 0; j<10; j++)
+		{
+			var t = (d.times).map(function(x){ return x.getTime() })
+			var tt = t.filter(function(x){
+				if(j<9){ return (x>timeArray[j])&&(x<timeArray[j+1])}
+				else { return x>timeArray[j] }
+			})
+			array.push(tt.length);
+		}
+		return array;
+	}
+
+	var chart = radialBarChart('counts-time-line', countsFunc)
 		.barHeight(250)
 		.reverseLayerOrder(true)
 		.capitalizeLabels(true)
@@ -23,4 +37,4 @@ $.get("/data", function(data) {
 	d3.select('#count-radial-vis')
 		.datum([{data: topTenObj}])
 		.call(chart);
-})
+});
