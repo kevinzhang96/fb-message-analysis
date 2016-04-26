@@ -1,4 +1,4 @@
-function radialBarChart002() {
+function RadialBarChart() {
 
   // Configurable variables
   var margin = {top: 20, right: 20, bottom: 20, left: 20};
