@@ -5,9 +5,10 @@
     <!-- FONTS --> 
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <!-- CSS --> 
-    <link href="css/main.css" rel="stylesheet"> 
-    <link href="css/bootstrap.min.css" rel="stylesheet"> 
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/radial-chart.css">
+    <link rel="stylesheet" href="css/main.css"> 
     <!-- JS -->
     <script src='js/es6-shim.min.js'></script>
     <script src="js/jquery.min.js"></script>
@@ -29,20 +30,15 @@
 
     <!--******************************* HOME *******************************-->
     <div class="jumbo" id="HOME"> 
-        <div id="header"><span>REAL FRIENDS v.0.1.3</span></div>
+        <div id="header"><span>REAL FRIENDS v.0.2.0</span></div>
         <div id="nametag">
-            [SAMPLE NAME]
+            Kevin Zhang
         </div>
     </div>
     
     <!--*********************** COUNT VISUALIZATION ************************-->
     <div class="jumbo" id="MESSAGE-COUNT">
-        <div class = 'col-md-6 time-box'>
-            <img src="img/triangle.png" class="carat">
-        </div>
-        <div class= 'col-md-6 vis-box'>
-            <div id="count-vis"></div> 
-        </div>
+        <div class="chart" id="count-radial-vis"></div>
         <span class="section-tag">MESSAGE COUNT</span>
     </div>
     

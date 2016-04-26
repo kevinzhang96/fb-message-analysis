@@ -6,7 +6,6 @@
     
 }
 
-
 #header{
     position: relative; 
     height: 50px;
@@ -27,7 +26,6 @@
     background-image: url('../img/asanoha-400px.png');
     background-repeat: repeat;
 }
-
 #menu {
     position: fixed;
     padding: 5px;
@@ -85,39 +83,20 @@
     background-color: #FCFDFF;
 }
 
-
-#chart {
-font-family: "Helvetica Neue", Helvetica, sans-serif;
-font-size: 14px;
-}
-#chart path {
-fill: none;
-}
-
-.time-box {
-    position: relative;
-    display: inline-block;
+/*.time-box {
     box-sizing: border-box;
     border: 15px solid #3B5998;
     background-color: white;
-    height: 100%;
-    width: 50%;
-    
     box-shadow: 10px 0px 20px #AAAAAA;
 }
 .carat {
     position: absolute;
-    
-    
     width: 90px;
     right: -90px;
     top: 200px;
 }
 .vis-box {
-    height: 100%;
-    width: 50%;
-    display: inline-block;
-}
+}*/
 
 .section-tag {
     position: absolute;
@@ -132,57 +111,4 @@ fill: none;
     font-size: 5em;
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-}
-
-
-/* layers */
-#chart .layer-0 path {
-fill: steelblue;
-}
-#chart .layer-1 path {
-fill: white !important;
-opacity: 0.3;
-stroke-width: 2px;
-stroke: #999;
-}
-
-/* Outer circle, tick-circles and spokes */
-#chart circle.outer {
-stroke: #aaa;
-stroke-dasharray: 4, 4;
-}
-#chart .tick-circles circle {
-stroke: #ddd;
-stroke-dasharray: 2, 2;
-}
-#chart .spokes line {
-stroke: #666;
-stroke-width: 0.2;
-}
-
-/* Axis */
-#chart .axis text {
-font-size: 11px;
-}
-#chart .axis path {
-stroke: #999;
-shape-rendering: crispEdges;
-}
-#chart .axis line {
-stroke: #999;
-shape-rendering: crispEdges;
-}
-
-/* Labels */
-#chart .labels text {
-fill: #333;
-font-size: 10px;
-font-weight: 500;
-}
-
-/* update button */
-#update {
-width: 100px;
-height: 30px;
-cursor: pointer;
 }

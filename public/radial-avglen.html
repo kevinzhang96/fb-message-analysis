@@ -4,69 +4,7 @@
   <script src='/js/es6-shim.min.js'></script>
     <meta charset="utf-8">
     <title>Radial Chart</title>
-    <style>
-
-#chart {
-font-family: "Helvetica Neue", Helvetica, sans-serif;
-font-size: 14px;
-}
-#chart path {
-fill: none;
-}
-
-/* layers */
-#chart .layer-0 path {
-fill: steelblue;
-}
-#chart .layer-1 path {
-fill: white !important;
-opacity: 0.3;
-stroke-width: 2px;
-stroke: #999;
-}
-
-/* Outer circle, tick-circles and spokes */
-#chart circle.outer {
-stroke: #aaa;
-stroke-dasharray: 4, 4;
-}
-#chart .tick-circles circle {
-stroke: #ddd;
-stroke-dasharray: 2, 2;
-}
-#chart .spokes line {
-stroke: #666;
-stroke-width: 0.2;
-}
-
-/* Axis */
-#chart .axis text {
-font-size: 11px;
-}
-#chart .axis path {
-stroke: #999;
-shape-rendering: crispEdges;
-}
-#chart .axis line {
-stroke: #999;
-shape-rendering: crispEdges;
-}
-
-/* Labels */
-#chart .labels text {
-fill: #333;
-font-size: 10px;
-font-weight: 500;
-}
-
-/* update button */
-#update {
-width: 100px;
-height: 30px;
-cursor: pointer;
-}
-
-</style>
+    <link rel="stylesheet" href="css/radial-chart.css">
   </head>
   <body>
     <div id="chart">
@@ -74,10 +12,10 @@ cursor: pointer;
     </div>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/d3.min.js"></script>
+    <script src="/js/time-visualization-count.js"></script>
     <script src="/js/radial-chart.js"></script>
     <script>
-      $.get("/process", function(data) {
-        console.log(data)
+      $.get("/data", function(data) {
         var counts = Object.keys(data).map(function(person) { return {
           name: person,
           count: data[person].length > 500 ? data[person].map(function(message) {return  message.body}).reduce(function(a, b) { return ""+a+b}, 0).length / data[person].length : 0

@@ -4,69 +4,6 @@
   <script src='/js/es6-shim.min.js'></script>
     <meta charset="utf-8">
     <title>Radial Chart</title>
-    <style>
-
-#chart {
-font-family: "Helvetica Neue", Helvetica, sans-serif;
-font-size: 14px;
-}
-#chart path {
-fill: none;
-}
-
-/* layers */
-#chart .layer-0 path {
-fill: steelblue;
-}
-#chart .layer-1 path {
-fill: white !important;
-opacity: 0.3;
-stroke-width: 2px;
-stroke: #999;
-}
-
-/* Outer circle, tick-circles and spokes */
-#chart circle.outer {
-stroke: #aaa;
-stroke-dasharray: 4, 4;
-}
-#chart .tick-circles circle {
-stroke: #ddd;
-stroke-dasharray: 2, 2;
-}
-#chart .spokes line {
-stroke: #666;
-stroke-width: 0.2;
-}
-
-/* Axis */
-#chart .axis text {
-font-size: 11px;
-}
-#chart .axis path {
-stroke: #999;
-shape-rendering: crispEdges;
-}
-#chart .axis line {
-stroke: #999;
-shape-rendering: crispEdges;
-}
-
-/* Labels */
-#chart .labels text {
-fill: #333;
-font-size: 10px;
-font-weight: 500;
-}
-
-/* update button */
-#update {
-width: 100px;
-height: 30px;
-cursor: pointer;
-}
-
-</style>
   </head>
   <body>
     <div id="chart"></div>
@@ -77,8 +14,7 @@ cursor: pointer;
     <script src="/js/radial-chart.js"></script>
     <script>
       date = null;
-      $.get("/test", function(data) {
-        //console.log(data)
+      $.get("/data", function(data) {
         var counts = Object.keys(data).map(function(person) { return {
           name: person,
           count: data[person].length,
@@ -96,7 +32,7 @@ cursor: pointer;
 
         })
         console.log(topTenObj)
-        //var time_chart = new TimeVisualization('time-vis',null);
+        
         var chart = radialBarChart()
           .barHeight(250)
           .reverseLayerOrder(true)
@@ -107,16 +43,6 @@ cursor: pointer;
         d3.select('#chart')
           .datum([{data: topTenObj}])
           .call(chart);
-/*
-        var dates = Object.keys(data).map(function(person) { return {
-          name: person,
-          count: data[person].map(function(thread) { return thread.date})
-        }})
-
-        console.log(dates)
-
-        date = dates;
-*/
       })
     </script>
 		</body>
