@@ -12,12 +12,12 @@ $(document).ready(function(){
     window.y = e.pageY;
   });
 
-  $(window).scroll(function(){
-    if (document.body.scrollTop < 100) {
-      $("#menu").show({ width:'toggle' }, 500);
-    }
-    else { 
-      $('#menu').hide({ width:'toggle' }, 500); 
-    }
-  })
+  // $(window).scroll(function(){
+  //   if (document.body.scrollTop < 100) {
+  //     $("#menu").show({ width:'toggle' }, 500);
+  //   }
+  //   else { 
+  //     $('#menu').hide({ width:'toggle' }, 500); 
+  //   }
+  // });
 });
