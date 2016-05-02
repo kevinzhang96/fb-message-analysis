@@ -15,12 +15,13 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/d3.min.js"></script>
-    <script src="js/complete.js"></script>
 </head>
 
 <body> 
+<div class="container-fluid">
+<div class="row">
     <!--******************************* MENU *******************************-->
-    <div id="menu">
+    <div class="col-md-2" id="menu">
         <ul id="menu-items">
             <li class="menu-item">HOME</li>
             <li class="menu-item">MESSAGE-COUNTS</li>
@@ -30,11 +31,13 @@
         </ul>
     </div>
 
-    <!--******************************* HOME *******************************-->
-    <div class="jumbo" id="HOME"> 
-        <div id="header"><span>REAL FRIENDS v.0.2.0</span></div>
-        <div id="nametag">
-            Kevin Zhang
+    <div class="col-md-10" id="content">
+        <!--******************************* HOME *******************************-->
+        <div class="jumbo" id="HOME"> 
+            <div id="header"><span>REAL FRIENDS v.0.2.0</span></div>
+            <div id="nametag">
+                Kevin Zhang
+            </div>
         </div>
     </div>
     
@@ -73,10 +76,8 @@
             <p><span id='name'></span>
             <hr />
             <p>MESSAGE COUNT: <span id='message-count'></span>
-            <p>FIRST MESSAGE: <span id='first'></span>
+            <p>FIRST MESSAGE: <span id='first'></span>  
         </div>
-            
-    </div>
     
     <!-- load visualizations after page has mostly loaded -->
     <script src="js/date-line.js"></script>
@@ -87,5 +88,7 @@
     <script src="js/radial-avglen-vis.js"></script>
     <script src="js/friendBubbles.js"></script>
     <script src="js/generate-graphs.js"></script>
+</div>
+</div>
 </body>
 </html>
