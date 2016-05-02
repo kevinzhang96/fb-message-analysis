@@ -43,21 +43,46 @@ function generateFriendBubbles(data) {
 
 	
 	function updateVis(){
+		svg.selectAll('circle').remove()
+		var val = 0;
 		var countNew = counts.filter(function(entry){
-			var val = $('#count-range').val();
-			console.log(val)
+			val = $('#count-range').val();
 			return entry.count>val;
-		 })
+		 });
+		 console.log(val);
 		var nodes = bubble.nodes({children: countNew }).slice(1);
 		var bubbles = svg.append("g")
 		.attr("transform", "translate(0,0)")
 		
 		var circles = bubbles
 			.selectAll("circle")
-			.data(nodes)
-			.enter();
+			.data(nodes, function(d){ return d.name; })
+			
 		
-		circles.append("circle")
+		circles.enter()
+			.append("circle")
+			.on('mouseover', function(d){
+				d3.select(this).transition().duration(500).style('fill', 'blue');
+				$('#name').text(d.name);
+				$('#message-count').text(d.count);
+				$('#first').text(function(){
+					var date = new Date(d.first);
+					var dateText = date.toString().slice(0,15)
+					return dateText;
+				})
+			})
+			.on('mouseout', function(){
+				$('#name').text('');
+				$('#message-count').text('');
+				$('#first').text('');
+				d3.select(this).transition().duration(500)
+					.style("fill", function(d) { 
+						var val = colorScale(d.first)
+						var col = 'rgb('+val+','+val+',160)'
+						return col
+					})
+			})
+		circles
 			.transition()
 			.duration(500)
 			.attr("r", function(d){ return d.r; })
@@ -68,8 +93,12 @@ function generateFriendBubbles(data) {
 				var col = 'rgb('+val+','+val+',160)'
 				return col
 			})
-			.attr('stroke','blue')
-			.attr('stroke-width','3.5')
+			//.attr('stroke','blue')
+			//.attr('stroke-width','3.5')
+		circles
+			.exit()
+			.remove()
+		console.log(circles);
 		/*
 		bubbles
 			.on('mouseover', function(d){
@@ -88,10 +117,9 @@ function generateFriendBubbles(data) {
 				$('#first').text('');
 				d3.select(this).transition().duration(500).attr('stroke', 'blue');
 			})
-			
-		circles
-			.exit().remove();
 			*/
+			
+			
 	}
 	
 		
