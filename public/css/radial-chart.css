@@ -9,6 +9,7 @@ font-size: 14px;
 /* layers */
 .chart .layer-0 path {
   fill: steelblue;
+  cursor: pointer;
 }
 .chart .layer-1 path {
   fill: white !important;
