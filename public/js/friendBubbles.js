@@ -38,16 +38,26 @@ function generateFriendBubbles(data) {
 		.padding(4)
 		.value(function(d){ return d.count; })
 		
-//	d3.json(countsJSON, function(error, data){
-	var nodes = bubble.nodes({children: counts}).slice(1);
-//	console.log(nodes);
-	var bubbles = svg.append("g")
+	updateVis();
+	$('#message-slider').change(updateVis);
+
+	
+	function updateVis(){
+		var countNew = counts.filter(function(entry){
+			var val = $('#message-slider').val();
+			//$('#BUBBLE-VIS').text(val);
+			return entry.count>val;
+		 })
+		var nodes = bubble.nodes({children: countNew }).slice(1);
+		var bubbles = svg.append("g")
 		.attr("transform", "translate(0,0)")
 		.selectAll(".bubble")
 		.data(nodes)
 		.enter();
-	
-	var circles = bubbles.append("circle")
+		
+		var circles = bubbles.append("circle")
+		.transition()
+		.duration(500)
         .attr("r", function(d){ return d.r; })
         .attr("cx", function(d){ return d.x; })
         .attr("cy", function(d){ return d.y; })
@@ -75,6 +85,10 @@ function generateFriendBubbles(data) {
 			$('#first').text('');
 			d3.select(this).transition().duration(500).attr('stroke', 'blue');
 		})
+	//circles
+	//	.exit().remove();
+	}
+	
 		
 	function minIndex(arr) {
     if (arr.length === 0) {
