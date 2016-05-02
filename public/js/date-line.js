@@ -243,7 +243,7 @@ function generateDateLineGraph(data) {
       .attr("x", width + (margin.right/3) - 15)
       .attr("y", function (d, i) { return (legendSpace)+i*(legendSpace) - 8; })  // spacing
       .attr("fill",function(d) {
-        return d.visible ? color(d.name) : "#F1F1F2"; // If array key "visible" = true then color rect, if not then make it grey
+        return d.visible ? color(d.name) : "#AAAAAA"; // If array key "visible" = true then color rect, if not then make it grey
       })
       .attr("class", "legend-box")
 
@@ -265,7 +265,7 @@ function generateDateLineGraph(data) {
         issue.select("rect")
           .transition()
           .attr("fill", function(d) {
-          return d.visible ? color(d.name) : "#F1F1F2";
+          return d.visible ? color(d.name) : "#AAAAAA";
         });
       })
 
@@ -285,7 +285,7 @@ function generateDateLineGraph(data) {
         d3.select(this)
           .transition()
           .attr("fill", function(d) {
-          return d.visible ? color(d.name) : "#F1F1F2";});
+          return d.visible ? color(d.name) : "#AAAAAA";});
 
         d3.select("#line-" + d.name.replace(" ", "").replace("/", ""))
           .transition()
