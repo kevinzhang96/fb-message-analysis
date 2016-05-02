@@ -12,6 +12,9 @@ $(document).ready(function(){
     window.y = e.pageY;
   });
 
+  $('#enter-button').click(function(){
+    $('#veil').fadeOut(700);
+  })
   // $(window).scroll(function(){
   //   if (document.body.scrollTop < 100) {
   //     $("#menu").show({ width:'toggle' }, 500);
