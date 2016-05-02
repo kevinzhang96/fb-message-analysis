@@ -34,7 +34,7 @@ router.get('/process', (req, res) => {
     var userName = null,
       tempNames = {};
     var firstTenConvos = threadsArray.slice(0, 10)
-    while (!userName) {
+/*    while (!userName) {
       var convo = firstTenConvos.pop();
       if(convo !== undefined) {
         var names = convo.childNodes[0].data.split(",");
@@ -48,8 +48,9 @@ router.get('/process', (req, res) => {
           })
         }
       }
-
-    }
+      
+  } */
+  userName = 'Humphrey Obuobi';
 
     // Create associative array by friend
 
@@ -90,7 +91,9 @@ router.get('/process', (req, res) => {
       if(err) res.end(400);
       else res.end(JSON.stringify(messages, null, 2))
     })
+    console.log('res.end')
   })
+  console.log('fin')
 })
 
 router.get('/data', (req, res) => {

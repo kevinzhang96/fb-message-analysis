@@ -2,7 +2,6 @@ TimeVisualization = function(_parentElement, _data) {
 
 	this.parentElement = _parentElement;
 	this.data = _data;
-
 	this.initVis();
 }
 

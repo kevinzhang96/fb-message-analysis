@@ -3,4 +3,5 @@ $.get("/data", function(data) {
   generateCountsRadialGraph(data);
   generateRatiosRadialGraph(data);
   generateLengthRadialGraph(data);
+  generateFriendBubbles(data);
 });
