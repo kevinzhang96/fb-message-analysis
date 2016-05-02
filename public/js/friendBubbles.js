@@ -15,7 +15,7 @@ function generateFriendBubbles(data) {
 	var element = 'BUBBLE-VIS';
 	
 	var height = $('#'+element).height();
-	var width = $('#'+element).width();
+	var width = $(document).width();
 	console.log(width);
 	console.log(height);
 	var diameter = 750;
@@ -39,54 +39,59 @@ function generateFriendBubbles(data) {
 		.value(function(d){ return d.count; })
 		
 	updateVis();
-	$('#message-slider').change(updateVis);
+	$('#count-range').change(updateVis);
 
 	
 	function updateVis(){
 		var countNew = counts.filter(function(entry){
-			var val = $('#message-slider').val();
-			//$('#BUBBLE-VIS').text(val);
+			var val = $('#count-range').val();
+			console.log(val)
 			return entry.count>val;
 		 })
 		var nodes = bubble.nodes({children: countNew }).slice(1);
 		var bubbles = svg.append("g")
 		.attr("transform", "translate(0,0)")
-		.selectAll(".bubble")
-		.data(nodes)
-		.enter();
 		
-		var circles = bubbles.append("circle")
-		.transition()
-		.duration(500)
-        .attr("r", function(d){ return d.r; })
-        .attr("cx", function(d){ return d.x; })
-        .attr("cy", function(d){ return d.y; })
-        .style("fill", function(d) { 
-			var val = colorScale(d.first);
-			var col = 'rgb('+val+','+val+',160)';
-			return col;
-		})
-		.attr('stroke','blue')
-		.attr('stroke-width',3.5)
-	circles
-		.on('mouseover', function(d){
-			d3.select(this).transition().duration(500).attr('stroke', 'green');
-			$('#name').text(d.name);
-			$('#message-count').text(d.count);
-			$('#first').text(function(){
-				var date = new Date(d.first);
-				var dateText = date.toString().slice(0,15)
-				return dateText;
+		var circles = bubbles
+			.selectAll("circle")
+			.data(nodes)
+			.enter();
+		
+		circles.append("circle")
+			.transition()
+			.duration(500)
+			.attr("r", function(d){ return d.r; })
+			.attr("cx", function(d){ return d.x; })
+			.attr("cy", function(d){ return d.y; })
+			.style("fill", function(d) { 
+				var val = colorScale(d.first)
+				var col = 'rgb('+val+','+val+',160)'
+				return col
 			})
-		})
-		.on('mouseout', function(){
-			$('#name').text('');
-			$('#message-count').text('');
-			$('#first').text('');
-			d3.select(this).transition().duration(500).attr('stroke', 'blue');
-		})
-	//circles
-	//	.exit().remove();
+			.attr('stroke','blue')
+			.attr('stroke-width','3.5')
+		/*
+		bubbles
+			.on('mouseover', function(d){
+				d3.select(this).transition().duration(500).attr('stroke', 'green');
+				$('#name').text(d.name);
+				$('#message-count').text(d.count);
+				$('#first').text(function(){
+					var date = new Date(d.first);
+					var dateText = date.toString().slice(0,15)
+					return dateText;
+				})
+			})
+			.on('mouseout', function(){
+				$('#name').text('');
+				$('#message-count').text('');
+				$('#first').text('');
+				d3.select(this).transition().duration(500).attr('stroke', 'blue');
+			})
+			
+		circles
+			.exit().remove();
+			*/
 	}
 	
 		
