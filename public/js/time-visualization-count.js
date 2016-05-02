@@ -45,7 +45,7 @@ TimeVisualization.prototype.initVis = function(){
 		.attr('display', 'none')
 		.attr('z-index', 10000);
 
-	vis.formatDate = d3.time.format("%Y");
+	vis.formatDate = d3.time.format("%d %b");
 }
 
 // Render visualization
@@ -57,9 +57,12 @@ TimeVisualization.prototype.updateVisualization = function(color) {
 		.x(function(d){ return vis.x(d.date); })
 		.y(function(d){ return vis.y(d.count); });
 
-	vis.graph.select('.x-axis').transition().duration(800).call(vis.xAxis);
+	vis.graph.select('.x-axis').transition().duration(800)
+		.call(vis.xAxis)
+	vis.graph.selectAll('.x-axis text')
+		.attr('transform','translate(0,15)rotate(-45)')
 	vis.graph.select('.y-axis').transition().duration(800).call(vis.yAxis);
-
+	
 	vis.path.datum(this.data)
 		.transition()
 		.duration(800)
