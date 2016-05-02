@@ -210,7 +210,7 @@ function radialBarChart(element, countsFunc) {
               }
           }
           timeVis.setData(timeData);
-          timeVis.updateVisualization();
+          timeVis.updateVisualization(d3.select(this).style('fill'));
         })
       if(!update)
         renderOverlays(this);

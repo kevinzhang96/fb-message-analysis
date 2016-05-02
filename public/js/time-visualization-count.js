@@ -49,7 +49,7 @@ TimeVisualization.prototype.initVis = function(){
 }
 
 // Render visualization
-TimeVisualization.prototype.updateVisualization = function() {
+TimeVisualization.prototype.updateVisualization = function(color) {
 	var vis = this;
 	vis.x.domain(d3.extent(this.data, function(d){ return d.date}));
 	vis.y.domain(d3.extent(this.data, function(d){ return d.count}));
@@ -65,7 +65,7 @@ TimeVisualization.prototype.updateVisualization = function() {
 		.duration(800)
 		.attr('d', line)
 		.attr('fill','none')
-		.attr('stroke','green')
+		.attr('stroke',color)
 
 	var circles = vis.lineGraph.selectAll('circle')
 		.data(this.data);
@@ -79,8 +79,8 @@ TimeVisualization.prototype.updateVisualization = function() {
 		.attr('r', 7)
 		.attr('cy', function(d){ return vis.y(d.count); })
 		.attr('cx', function(d){ return vis.x(d.date); })
-		.attr('fill', 'green')
-		.attr('stroke', 'green');
+		.attr('fill', color)
+		.attr('stroke', color);
 
 	circles.exit().remove();
 
