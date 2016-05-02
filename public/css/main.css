@@ -22,6 +22,20 @@
     background-image: url('../img/asanoha-400px.png');
     background-repeat: repeat;
 }
+#info-box {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    
+    fill: white;    
+    border: 5px #3B5998 solid;
+    border-radius: 10px;
+    padding: 20px;
+    
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5em;
+    
+}
 #menu {
     position: fixed;
     padding: 5px;
@@ -90,10 +104,7 @@
 
 .radial {
     width: 540px;
-<<<<<<< HEAD
     height: 540px;
 }
 
-=======
-}
->>>>>>> 87dba465a43eae319f8cff7728b16f2f578a2ba6
+
