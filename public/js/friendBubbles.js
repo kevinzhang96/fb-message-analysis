@@ -6,7 +6,8 @@ function generateFriendBubbles(data) {
 		times: (data[person].map(function(message) { return message.date; }))
 	}})
 	counts.forEach(function(entry){
-		entry.first = (entry.times)[(entry.times).length-1];
+		var min = minIndex(entry.times);
+		entry.first = (entry.times)[min];
 	})
 	// convert to json as a test for this stupid nodes thing
 	console.log(counts);
@@ -15,6 +16,8 @@ function generateFriendBubbles(data) {
 	
 	var height = $('#'+element).height();
 	var width = $('#'+element).width();
+	console.log(width);
+	console.log(height);
 	var diameter = 750;
 	var firsts = counts.map(function(d){ return d.first });
 	
@@ -51,7 +54,6 @@ function generateFriendBubbles(data) {
         .style("fill", function(d) { 
 			var val = colorScale(d.first);
 			var col = 'rgb('+val+','+val+',160)';
-			console.log(col);
 			return col;
 		})
 		.attr('stroke','blue')
@@ -68,8 +70,29 @@ function generateFriendBubbles(data) {
 			})
 		})
 		.on('mouseout', function(){
+			$('#name').text('');
+			$('#message-count').text('');
+			$('#first').text('');
 			d3.select(this).transition().duration(500).attr('stroke', 'blue');
 		})
+		
+	function minIndex(arr) {
+    if (arr.length === 0) {
+        return -1;
+    }
+
+    var max = arr[0];
+    var maxIndex = 0;
+
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] < max) {
+            maxIndex = i;
+            max = arr[i];
+        }
+    }
+
+    return maxIndex;
+}
 	//})
 /*
 function zoom(){
