@@ -20,7 +20,7 @@ router.get('/process', (req, res) => {
       console.error("error reading")
       return;
     }
-    
+
     // Read file into an array of threads
     var messageData = cheerio.load(data)
     var threads = messageData(".thread")
@@ -86,7 +86,10 @@ router.get('/process', (req, res) => {
         messages[other] = [...(messages[other] || []), ...conversation];
       }
     })
-    res.end(JSON.stringify(messages, null, 2))
+    fs.writeFile("data/messages.json", JSON.stringify(messages), (err, data) => {
+      if(err) res.end(400);
+      else res.end(JSON.stringify(messages, null, 2))
+    })
   })
 })
 
