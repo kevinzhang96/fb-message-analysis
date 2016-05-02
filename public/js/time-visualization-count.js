@@ -66,6 +66,7 @@ TimeVisualization.prototype.updateVisualization = function(color) {
 		.attr('d', line)
 		.attr('fill','none')
 		.attr('stroke',color)
+		.attr('stroke-width', '6')
 
 	var circles = vis.lineGraph.selectAll('circle')
 		.data(this.data);
@@ -79,8 +80,9 @@ TimeVisualization.prototype.updateVisualization = function(color) {
 		.attr('r', 7)
 		.attr('cy', function(d){ return vis.y(d.count); })
 		.attr('cx', function(d){ return vis.x(d.date); })
-		.attr('fill', color)
-		.attr('stroke', color);
+		.attr('fill', 'white')
+		.attr('stroke', color)
+		.attr('stroke-width', '6')
 
 	circles.exit().remove();
 
