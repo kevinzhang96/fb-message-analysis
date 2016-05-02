@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html>
 <head>
-    <title>REAL FRIENDS v.0.2.0</title>
+    <title>REAL FRIENDS v.1.0.0</title>
     <!-- FONTS --> 
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -65,17 +65,17 @@
         <div class="chart" id="lengths-time-line"></div>
     </div>
     
-    <div class="jumbo" id="BUBBLE-VIS">
+    <div class="jumbo" id="FRIEND-OVERVIEW">
         <div class="section-tag">FRIEND OVERVIEW</div>
-        <div id="message-slider">
-            <input type="range" id="count-range" min="0" value="50">
-        </div>
             
         <div id='info-box'>
             <p><span id='name'></span>
             <hr />
             <p>MESSAGE COUNT: <span id='message-count'></span>
-            <p>FIRST MESSAGE: <span id='first'></span>  
+            <p>FIRST MESSAGE: <span id='first'></span>
+            <p>THRESHOLD: <input type="range" id="count-range" min="0" value="50" style="width:200px">
+            <span id='count-range-num' style='font-size: 1.2em;font-weight: 700'>50 messages</span>
+            <br> 
         </div>
         
    </div>

@@ -101,7 +101,7 @@ body {
 #info-box {
     position: absolute;
     bottom: 0;
-    right: 20px;
+    left: 20tpx;
     
     fill: white;    
     border: 5px #3B5998 solid;

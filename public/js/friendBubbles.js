@@ -12,13 +12,13 @@ function generateFriendBubbles(data) {
 	// convert to json as a test for this stupid nodes thing
 	console.log(counts);
 
-	var element = 'BUBBLE-VIS';
+	var element = 'FRIEND-OVERVIEW';
 	
 	var height = $('#'+element).height();
-	var width = $(document).width();
+	var width = height;
 	console.log(width);
 	console.log(height);
-	var diameter = 750;
+	var diameter = 600;
 	var firsts = counts.map(function(d){ return d.first });
 	
 	var colorScale = d3.scale.linear()
@@ -28,8 +28,12 @@ function generateFriendBubbles(data) {
 	var svg = d3.select('#'+element)
 		.append('svg')
 		.attr('id','bubble-chart')
-		.style('width', width)
-		.style('height', height);
+		.style('width', diameter)
+		.style('height', diameter)
+		.style({
+			'position': 'absolute',
+			'right': 20
+		})
 	
 	//svg.call(d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", zoom))
 	var bubble = d3.layout.pack()
@@ -39,7 +43,12 @@ function generateFriendBubbles(data) {
 		.value(function(d){ return d.count; })
 		
 	updateVis();
-	$('#count-range').change(updateVis);
+	$('#count-range').attr('max',1000);
+	$('#count-range').change(function(){
+		$('#count-range-num').text(function(){ return  $('#count-range').val()+' messages'; })
+		updateVis();
+		
+	});
 
 	
 	function updateVis(){
