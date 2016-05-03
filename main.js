@@ -81,8 +81,8 @@ app.on('ready', function() {
     webPreferences: {
       nodeIntegration: false
     },
-  	width: 640,
-  	height: 400
+  	width: 1280,
+  	height: 800
   });
 
   // view engine setup
