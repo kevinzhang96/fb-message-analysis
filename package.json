@@ -19,7 +19,8 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
-    "electron-debug": "~0.7.0"
+    "electron-debug": "~0.7.0",
+    "electron-prebuilt": "~0.37.8"
   },
   "devDependencies": {
     "electron-prebuilt": "^0.36.9"
