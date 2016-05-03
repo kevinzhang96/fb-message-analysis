@@ -9,7 +9,8 @@
   "license": "GPL-3.0",
   "private": true,
   "scripts": {
-    "start": "node ./start-electron.js"
+    "start": "node ./start-electron.js",
+    "build": "electron-packager . --platform=darwin --arch=x64"
   },
   "dependencies": {
     "body-parser": "~1.15.0",
@@ -20,7 +21,8 @@
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
     "electron-debug": "~0.7.0",
-    "electron-prebuilt": "~0.37.8"
+    "electron-prebuilt": "~0.37.8",
+    "electron-packager": "^7.0.1"
   },
   "devDependencies": {
     "electron-prebuilt": "^0.36.9"
